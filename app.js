@@ -7,6 +7,7 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const catalogRouter = require("./routes/catalog");
+require('dotenv').config()
 
 
 const app = express();
@@ -14,7 +15,7 @@ const app = express();
 const mongoose = require("mongoose");
 
 mongoose.set('strictQuery', false);
-const mongoDB = "insert_your_database_url_here";
+const mongoDB = process.env.CONEXION;
 
 main().catch(err => console.log(err));
 async function main() {
